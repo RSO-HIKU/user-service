@@ -1,7 +1,9 @@
 package com.hiku.userService.controller;
 
 import com.hiku.userService.model.User;
-import com.hiku.userService.dao.UserRepository;
+import com.hiku.userService.model.Follow;
+
+import com.hiku.userService.repository.UserRepository;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -50,5 +52,67 @@ public class UserController {
         boolean removed = repo.delete(id);
         if (!removed) return Response.status(Response.Status.NOT_FOUND).build();
         return Response.noContent().build();
+    }
+
+      @POST
+    @Path("{id}/follow/{targetId}")
+    public Response followUser(@PathParam("id") Long followerId, @PathParam("targetId") Long followingId) {
+        User follower = repo.find(followerId);
+        User following = repo.find(followingId);
+        
+        if (follower == null || following == null) 
+            return Response.status(Response.Status.NOT_FOUND).build();
+        
+        if (repo.isFollowing(followerId, followingId))
+            return Response.status(Response.Status.CONFLICT).entity("Already following").build();
+
+        repo.follow(follower, following);
+        return Response.status(Response.Status.CREATED).build();
+    }
+
+    @DELETE
+    @Path("{id}/follow/{targetId}")
+    public Response unfollowUser(@PathParam("id") Long followerId, @PathParam("targetId") Long followingId) {
+        boolean removed = repo.unfollow(followerId, followingId);
+        if (!removed) return Response.status(Response.Status.NOT_FOUND).build();
+        return Response.noContent().build();
+    }
+
+    @GET
+    @Path("{id}/followers")
+    public Response getFollowers(@PathParam("id") Long userId) {
+        User u = repo.find(userId);
+        if (u == null) return Response.status(Response.Status.NOT_FOUND).build();
+        return Response.ok(repo.getFollowers(userId)).build();
+    }
+
+    @GET
+    @Path("{id}/following")
+    public Response getFollowing(@PathParam("id") Long userId) {
+        User u = repo.find(userId);
+        if (u == null) return Response.status(Response.Status.NOT_FOUND).build();
+        return Response.ok(repo.getFollowing(userId)).build();
+    }
+
+    @GET
+    @Path("{id}/follower-count")
+    public Response getFollowerCount(@PathParam("id") Long userId) {
+        User u = repo.find(userId);
+        if (u == null) return Response.status(Response.Status.NOT_FOUND).build();
+        return Response.ok("{\"followerCount\": " + repo.getFollowerCount(userId) + "}").build();
+    }
+
+    @GET
+    @Path("{id}/following-count")
+    public Response getFollowingCount(@PathParam("id") Long userId) {
+        User u = repo.find(userId);
+        if (u == null) return Response.status(Response.Status.NOT_FOUND).build();
+        return Response.ok("{\"followingCount\": " + repo.getFollowingCount(userId) + "}").build();
+    }
+
+    @GET
+    @Path("{id}/is-following/{targetId}")
+    public Response isFollowing(@PathParam("id") Long followerId, @PathParam("targetId") Long followingId) {
+        return Response.ok("{\"following\": " + repo.isFollowing(followerId, followingId) + "}").build();
     }
 }

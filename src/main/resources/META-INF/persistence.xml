@@ -7,27 +7,18 @@
     <persistence-unit name="hikuPU" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
-        <!-- List all your entity classes here -->
         <class>com.hiku.userService.model.User</class>
 
         <properties>
-            <!-- Database connection for Docker/runtime -->
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+            <!-- change port when necessary if running in docker or not -->
             <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://postgres:5432/hikudb"/>
             <property name="javax.persistence.jdbc.user" value="hikuuser"/>
             <property name="javax.persistence.jdbc.password" value="hikupassword"/>
-
-            <!-- Hibernate dialect -->
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL10Dialect"/>
-
-            <!-- Automatically update schema in database -->
             <property name="hibernate.hbm2ddl.auto" value="update"/>
-
-            <!-- Optional: print SQL to console -->
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
-
-            <!-- Schema generation to file (creates target/schema-user.sql) -->
             <property name="javax.persistence.schema-generation.scripts.action" value="create"/>
             <property name="javax.persistence.schema-generation.scripts.create-target" value="target/schema-user.sql"/>
             <property name="javax.persistence.schema-generation.create-source" value="metadata"/>

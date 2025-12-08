@@ -1,4 +1,4 @@
-package com.hiku.userService.controller;
+package com.hiku.userService;
 
 import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.container.ContainerRequestFilter;

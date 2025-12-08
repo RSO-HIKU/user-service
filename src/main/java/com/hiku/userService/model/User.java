@@ -1,7 +1,11 @@
 package com.hiku.userService.model;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import java.time.OffsetDateTime;
+import java.util.List;
+import java.util.ArrayList;
+import com.hiku.userService.model.Follow;
 
 @Entity
 @Table(name = "users", schema = "user_service")
@@ -16,7 +20,18 @@ public class User {
     @Column(nullable=false, unique=true)
     private String email;
 
+    private String passwordHash;
+
     private String fullName;
+     private String bio;
+    private String profileImageUrl;
+    @JsonbTransient
+    @OneToMany(mappedBy = "follower", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Follow> following = new ArrayList<>();
+    @JsonbTransient
+    @OneToMany(mappedBy = "following", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Follow> followers = new ArrayList<>();
+
 
     private OffsetDateTime createdAt;
 
@@ -40,4 +55,18 @@ public class User {
 
     public OffsetDateTime getCreatedAt() { return createdAt; }
     public void setCreatedAt(OffsetDateTime createdAt) { this.createdAt = createdAt; }
+
+    public List<Follow> getFollowing() { return following; }
+    public void setFollowing(List<Follow> following) { this.following = following; }
+
+    public List<Follow> getFollowers() { return followers; }
+    public void setFollowers(List<Follow> followers) { this.followers = followers; }
+
+    public String getBio() { return bio; }
+    public void setBio(String bio) { this.bio = bio; }
+
+    public String getProfileImageUrl() { return profileImageUrl; }
+    public void setProfileImageUrl(String profileImageUrl) { this.profileImageUrl = profileImageUrl; }
+
+
 }
