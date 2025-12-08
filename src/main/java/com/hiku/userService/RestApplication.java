@@ -16,6 +16,7 @@ public class RestApplication extends Application {
         Set<Class<?>> classes = new HashSet<>();
         // Register resource(s)
         classes.add(Hello.class);
+        classes.add(UserController.class);
         // Register provider(s)
         classes.add(CORSFilter.class);
         return classes;
