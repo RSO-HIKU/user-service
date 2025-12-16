@@ -6,3 +6,9 @@ kumuluzee:
   server:
     http:
       port: 8083
+      address: 0.0.0.0
+  datasources:
+    default:
+      connectionUrl: jdbc:postgresql://postgres:5432/hikudb
+      user: hikuuser
+      password: hikupassword
