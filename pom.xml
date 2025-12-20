@@ -29,51 +29,45 @@
             <artifactId>kumuluzee-core</artifactId>
             <version>${kumuluzee.version}</version>
         </dependency>
-            <!-- KumuluzEE core and desired components -->
-                <!-- JPA API -->
-        <dependency>
-            <groupId>javax.persistence</groupId>
-            <artifactId>javax.persistence-api</artifactId>
-        </dependency>
-
-        <!-- Hibernate ORM -->
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-core</artifactId>
-        </dependency>
         <dependency>
             <groupId>com.kumuluz.ee</groupId>
             <artifactId>kumuluzee-core</artifactId>
+            <version>${kumuluzee.version}</version>
         </dependency>
 
         <!-- JAX-RS for REST endpoints -->
         <dependency>
             <groupId>com.kumuluz.ee</groupId>
             <artifactId>kumuluzee-jax-rs-jersey</artifactId>
+            <version>${kumuluzee.version}</version>
         </dependency>
 
         <!-- CDI for dependency injection -->
         <dependency>
             <groupId>com.kumuluz.ee</groupId>
             <artifactId>kumuluzee-cdi-weld</artifactId>
+            <version>${kumuluzee.version}</version>
         </dependency>
 
         <!-- JSON-B for JSON binding -->
         <dependency>
             <groupId>com.kumuluz.ee</groupId>
             <artifactId>kumuluzee-json-b-yasson</artifactId>
+            <version>${kumuluzee.version}</version>
         </dependency>
 
         <!-- JSON-P for JSON processing -->
         <dependency>
             <groupId>com.kumuluz.ee</groupId>
             <artifactId>kumuluzee-json-p-jsonp</artifactId>
+            <version>${kumuluzee.version}</version>
         </dependency>
 
         <!-- Jetty servlet -->
         <dependency>
             <groupId>com.kumuluz.ee</groupId>
             <artifactId>kumuluzee-servlet-jetty</artifactId>
+            <version>${kumuluzee.version}</version>
         </dependency>
         <dependency>
             <groupId>org.postgresql</groupId>
