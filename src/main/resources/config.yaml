@@ -1,6 +1,6 @@
 kumuluzee:
   name: user-service
-  version: 1.0.0
+  version: 0.1.0
   env:
     name: dev
   server:
