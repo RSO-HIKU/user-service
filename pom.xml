@@ -29,11 +29,6 @@
             <artifactId>kumuluzee-core</artifactId>
             <version>${kumuluzee.version}</version>
         </dependency>
-        <dependency>
-            <groupId>com.kumuluz.ee</groupId>
-            <artifactId>kumuluzee-core</artifactId>
-            <version>${kumuluzee.version}</version>
-        </dependency>
 
         <!-- JAX-RS for REST endpoints -->
         <dependency>
@@ -74,13 +69,6 @@
             <artifactId>postgresql</artifactId>
             <version>42.6.0</version> <!-- or the latest stable version -->
         </dependency>
-
-        <dependency>
-            <groupId>com.kumuluz.ee.swagger</groupId>
-            <artifactId>kumuluzee-swagger</artifactId>
-            <version>1.2.1</version>
-        </dependency>
-
     </dependencies>
 
     <build>
