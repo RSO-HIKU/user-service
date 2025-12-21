@@ -1,0 +1,37 @@
+apiVersion: skaffold/v4beta8
+kind: Config
+metadata:
+  name: user-service
+build:
+  local:
+    push: false
+  tagPolicy:
+    sha256: {}
+  artifacts:
+    - image: user-service
+      context: .
+      docker:
+        dockerfile: Dockerfile
+deploy:
+  helm:
+    releases:
+      - name: user-service
+        chartPath: helm
+        namespace: dev
+        createNamespace: true
+        valuesFiles:
+          - helm/values-dev.yaml
+        setValueTemplates:
+          image.repository: "{{.IMAGE_REPO_user_service}}"
+          image.tag: "{{.IMAGE_TAG_user_service}}"
+        wait: true
+portForward:
+  - resourceType: service
+    resourceName: user-service-nodeport
+    namespace: dev
+    port: 8083
+    localPort: 8083
+profiles:
+  - name: minikube
+    activation:
+      - kubeContext: minikube
