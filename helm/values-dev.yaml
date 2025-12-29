@@ -12,3 +12,8 @@ service:
   nodePort:
     port: 8083
     nodePort: 30081
+
+flyway:
+  image:
+    repository: user-service-migrator
+    tag: "dev"
