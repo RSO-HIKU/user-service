@@ -33,6 +33,7 @@ public class UserRepository {
     public User find(Long id) {
         EntityManager em = getEntityManager();
         User user = em.find(User.class, id);
+  
         em.close();
         return user;
     }

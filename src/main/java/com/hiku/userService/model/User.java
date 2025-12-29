@@ -73,5 +73,7 @@ public class User {
     public String getProfileImageUrl() { return profileImageUrl; }
     public void setProfileImageUrl(String profileImageUrl) { this.profileImageUrl = profileImageUrl; }
 
+    public Integer getAge() { return age; }
+    public void setAge(Integer age) { this.age = age; }
 
 }

@@ -10,6 +10,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
+import java.util.Map;
 @Path("/user")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
@@ -45,6 +46,29 @@ public class UserController {
         if (updated == null) return Response.status(Response.Status.NOT_FOUND).build();
         return Response.ok(updated).build();
     }
+    @PATCH
+    @Path("{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response patchUser(@PathParam("id") Long id, User partial) {
+        try {
+            User existing = repo.find(id);
+            if (existing == null) return Response.status(Response.Status.NOT_FOUND).build();
+
+            // Only update fields that are not null
+            if (partial.getUsername() != null) existing.setUsername(partial.getUsername());
+            if (partial.getEmail() != null) existing.setEmail(partial.getEmail());
+            if (partial.getAge() != null) existing.setAge(partial.getAge());
+            if (partial.getBio() != null) existing.setBio(partial.getBio());
+
+            User updated = repo.update(existing);
+            return Response.ok(updated).build();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(e.getMessage()).build();
+        }
+    }
+
 
     @DELETE
     @Path("{id}")
