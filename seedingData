@@ -1,0 +1,19 @@
+-- ==============================
+-- Seed users
+-- ==============================
+INSERT INTO user_service.users (age, bio, createdAt, email, fullName, passwordHash, profileImageUrl, username)
+VALUES
+  (25, 'Loves hiking and nature', now(), 'janez.novak@example.com', 'Janez Novak', 'hash1', 'https://picsum.photos/200/200?random=1', 'janez'),
+  (30, 'Adventure seeker', now(), 'ana.kovac@example.com', 'Ana Kovac', 'hash2', 'https://picsum.photos/200/200?random=2', 'ana'),
+  (28, 'Mountain biker', now(), 'marko.kralj@example.com', 'Marko Kralj', 'hash3', 'https://picsum.photos/200/200?random=3', 'marko'),
+  (22, 'Nature photographer', now(), 'eva.petrovic@example.com', 'Eva Petrovic', 'hash4', 'https://picsum.photos/200/200?random=4', 'eva');
+
+-- ==============================
+-- Seed follows relationships
+-- ==============================
+INSERT INTO user_service.follows (createdAt, follower_id, following_id)
+VALUES
+  (now(), 1, 2), -- Janez follows Ana
+  (now(), 2, 1), -- Ana follows Janez
+  (now(), 3, 1), -- Marko follows Janez
+  (now(), 4, 2); -- Eva follows Ana

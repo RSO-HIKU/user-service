@@ -1,6 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.hiku</groupId>
     <artifactId>user-service</artifactId>
@@ -29,36 +30,26 @@
             <artifactId>kumuluzee-core</artifactId>
             <version>${kumuluzee.version}</version>
         </dependency>
-
-        <!-- JAX-RS for REST endpoints -->
         <dependency>
             <groupId>com.kumuluz.ee</groupId>
             <artifactId>kumuluzee-jax-rs-jersey</artifactId>
             <version>${kumuluzee.version}</version>
         </dependency>
-
-        <!-- CDI for dependency injection -->
         <dependency>
             <groupId>com.kumuluz.ee</groupId>
             <artifactId>kumuluzee-cdi-weld</artifactId>
             <version>${kumuluzee.version}</version>
         </dependency>
-
-        <!-- JSON-B for JSON binding -->
         <dependency>
             <groupId>com.kumuluz.ee</groupId>
             <artifactId>kumuluzee-json-b-yasson</artifactId>
             <version>${kumuluzee.version}</version>
         </dependency>
-
-        <!-- JSON-P for JSON processing -->
         <dependency>
             <groupId>com.kumuluz.ee</groupId>
             <artifactId>kumuluzee-json-p-jsonp</artifactId>
             <version>${kumuluzee.version}</version>
         </dependency>
-
-        <!-- Jetty servlet -->
         <dependency>
             <groupId>com.kumuluz.ee</groupId>
             <artifactId>kumuluzee-servlet-jetty</artifactId>
@@ -67,12 +58,13 @@
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>42.6.0</version> <!-- or the latest stable version -->
+            <version>42.6.0</version>
         </dependency>
     </dependencies>
 
     <build>
         <plugins>
+            <!-- Compiler plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -81,6 +73,8 @@
                     <release>${maven.compiler.release}</release>
                 </configuration>
             </plugin>
+
+            <!-- KumuluzEE repackaging -->
             <plugin>
                 <groupId>com.kumuluz.ee</groupId>
                 <artifactId>kumuluzee-maven-plugin</artifactId>
@@ -94,14 +88,28 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <!-- Exec plugin for SchemaGenerator -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.1.0</version>
-                <configuration>
-                    <mainClass>com.hiku.userService.util.SchemaGenerator</mainClass>
-                </configuration>
+                <executions>
+                    <execution>
+                        <id>generate-schema</id>
+                        <!-- Run after compilation -->
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>
+                        <configuration>
+                            <mainClass>com.hiku.userService.util.SchemaGenerator</mainClass>
+                            <skip>${skipExec}</skip>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
+
         </plugins>
     </build>
 </project>

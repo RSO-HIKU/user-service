@@ -17,3 +17,8 @@ flyway:
   image:
     repository: user-service-migrator
     tag: "dev"
+  url: jdbc:postgresql://postgres.database.svc.cluster.local:5432/hikudb
+  user: hikuuser
+  password: hikupassword
+  baselineOnMigrate: true
+  baselineVersion: 2

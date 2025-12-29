@@ -2,6 +2,8 @@ package com.hiku.userService.model;
 
 import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
+import javax.persistence.criteria.CriteriaBuilder.In;
+
 import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.ArrayList;
@@ -23,8 +25,11 @@ public class User {
     private String passwordHash;
 
     private String fullName;
-     private String bio;
+    private String bio;
     private String profileImageUrl;
+
+    private Integer age;
+    
     @JsonbTransient
     @OneToMany(mappedBy = "follower", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Follow> following = new ArrayList<>();
