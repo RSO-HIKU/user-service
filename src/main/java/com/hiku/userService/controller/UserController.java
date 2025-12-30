@@ -5,6 +5,9 @@ import com.hiku.userService.model.Follow;
 
 import com.hiku.userService.repository.UserRepository;
 
+import com.hiku.userService.messaging.FollowEvent;
+import com.hiku.userService.messaging.FollowEventPublisher;
+
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -91,6 +94,9 @@ public class UserController {
             return Response.status(Response.Status.CONFLICT).entity("Already following").build();
 
         repo.follow(follower, following);
+
+           FollowEvent event = new FollowEvent(followerId, followingId, "CREATED");
+            FollowEventPublisher.publishFollowEvent(event);
         return Response.status(Response.Status.CREATED).build();
     }
 
@@ -99,6 +105,9 @@ public class UserController {
     public Response unfollowUser(@PathParam("id") Long followerId, @PathParam("targetId") Long followingId) {
         boolean removed = repo.unfollow(followerId, followingId);
         if (!removed) return Response.status(Response.Status.NOT_FOUND).build();
+
+            FollowEvent event = new FollowEvent(followerId, followingId, "REMOVED");
+    FollowEventPublisher.publishFollowEvent(event);
         return Response.noContent().build();
     }
 
