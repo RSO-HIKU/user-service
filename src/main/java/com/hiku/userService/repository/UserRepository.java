@@ -124,6 +124,22 @@ public class UserRepository {
         return result;
     }
 
+
+
+public List<User> searchByUsername(String query) {
+    System.out.println("Searching users with query: " + query);
+    EntityManager em = getEntityManager();
+    List<User> result = em.createQuery(
+        "SELECT u FROM User u WHERE LOWER(u.username) LIKE LOWER(:query)",
+        User.class)
+        .setParameter("query", "%" + query + "%")
+        .getResultList();
+    em.close();
+    return result;
+}
+
+
+
     public List<User> getFollowing(Long userId) {
         EntityManager em = getEntityManager();
         List<User> result = em.createQuery(

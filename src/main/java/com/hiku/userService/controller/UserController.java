@@ -134,6 +134,15 @@ public class UserController {
         if (u == null) return Response.status(Response.Status.NOT_FOUND).build();
         return Response.ok("{\"followerCount\": " + repo.getFollowerCount(userId) + "}").build();
     }
+    @GET
+    @Path("/search")
+    public Response search(@QueryParam("search") String query) {
+        if (query == null || query.trim().isEmpty()) {
+            return Response.ok(new java.util.ArrayList<>()).build();
+        }
+        List<User> results = repo.searchByUsername(query);
+        return Response.ok(results).build();
+    }
 
     @GET
     @Path("{id}/following-count")
