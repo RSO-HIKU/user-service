@@ -3,41 +3,73 @@ kind: Job
 metadata:
   name: {{ include "user-service.fullname" . }}-migrate
   namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "user-service.labels" . | nindent 4 }}
   annotations:
     "helm.sh/hook": pre-install,pre-upgrade
     "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
 spec:
   backoffLimit: 3  # retry a few times before failing
   template:
+    metadata:
+      labels:
+        {{- include "user-service.selectorLabels" . | nindent 8 }}
     spec:
       restartPolicy: Never
+      {{- if .Values.azure.enabled }}
+      volumes:
+        - name: secrets-store
+          csi:
+            driver: secrets-store.csi.k8s.io
+            readOnly: true
+            volumeAttributes:
+              secretProviderClass: {{ include "user-service.fullname" . }}-azure-kv
+      {{- end }}
       containers:
         - name: flyway
           image: "{{ .Values.flyway.image.repository }}:{{ .Values.flyway.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.flyway.image.pullPolicy | default "IfNotPresent" }}
+          {{- if .Values.azure.enabled }}
+          volumeMounts:
+            - name: secrets-store
+              mountPath: /mnt/secrets-store
+              readOnly: true
+          command: ["sh", "-c"]
+          args:
+            - |
+              set -euo pipefail
+              # Read secrets from CSI mounted files
+              export FLYWAY_USER=$(cat /mnt/secrets-store/user-db-user)
+              export FLYWAY_PASSWORD=$(cat /mnt/secrets-store/user-db-password)
+              export PGHOST=$(cat /mnt/secrets-store/pg-host)
+              export FLYWAY_URL="jdbc:postgresql://${PGHOST}:{{ .Values.azure.port }}/{{ .Values.azure.database }}?sslmode={{ .Values.azure.sslmode }}"
+              
+              exec flyway migrate
+          {{- else }}
+          args: ["migrate"]
+          {{- end }}
           env:
+            - name: FLYWAY_SCHEMAS
+              value: {{ .Values.database.schema | quote }}
+            - name: FLYWAY_DEFAULT_SCHEMA
+              value: {{ .Values.database.schema | quote }}
+            - name: FLYWAY_CREATE_SCHEMAS
+              value: "true"
+            {{- if .Values.database.enabled }}
+            # Dev: use Kubernetes secret
             - name: FLYWAY_URL
               valueFrom:
                 secretKeyRef:
-                  name: user-service-db
+                  name: {{ include "user-service.fullname" . }}-db
                   key: FLYWAY_URL
             - name: FLYWAY_USER
               valueFrom:
                 secretKeyRef:
-                  name: user-service-db
+                  name: {{ include "user-service.fullname" . }}-db
                   key: DB_USER
             - name: FLYWAY_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: user-service-db
-                  key: DB_PASS
-            - name: FLYWAY_SCHEMAS
-              value: user_service
-            - name: FLYWAY_DEFAULT_SCHEMA
-              value: user_service
-            - name: FLYWAY_CREATE_SCHEMAS
-              value: "true"
-            - name: FLYWAY_BASELINE_ON_MIGRATE
-              value: "true"
-            - name: FLYWAY_BASELINE_VERSION
-              value: "2"
-          args: ["migrate"]
+                  name: {{ include "user-service.fullname" . }}-db
+                  key: DB_PASS          
+            {{- end }}

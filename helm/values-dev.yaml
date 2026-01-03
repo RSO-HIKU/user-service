@@ -5,11 +5,22 @@ image:
   tag: dev-latest
   pullPolicy: Never
 
+database:
+  enabled: true
+  host: postgres.database.svc.cluster.local
+  port: "5432"
+  name: hikudb
+  schema: user_service
+
+azure:
+  enabled: false
+
 service:
   clusterIP:
     port: 8083
 
   nodePort:
+    enabled: true
     port: 8083
     nodePort: 30081
 
@@ -22,3 +33,7 @@ flyway:
   password: hikupassword
   baselineOnMigrate: true
   baselineVersion: 2
+
+jwtAuth:
+  issuer: "http://localhost:8080/auth/realms/hiku-dev"
+  jwksUri: "http://keycloak.keycloak.svc.cluster.local:8080/auth/realms/hiku-dev/protocol/openid-connect/certs"
