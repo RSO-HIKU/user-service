@@ -13,7 +13,7 @@ import java.util.Set;
  * Explicit JAX-RS application class that registers resources and providers.
  * Some JAX-RS runtimes require explicit registration instead of classpath scanning.
  */
-@ApplicationPath("/user-service")
+@ApplicationPath("/api/user")
 public class UserService extends Application {
 
 
