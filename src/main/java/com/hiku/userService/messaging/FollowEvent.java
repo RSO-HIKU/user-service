@@ -4,23 +4,23 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 public class FollowEvent implements Serializable {
-    private Long followerId;
-    private Long followedId;
+    private String followerId;
+    private String followedId;
     private String action; // "CREATED" or "REMOVED"
     private LocalDateTime timestamp;
 
-    public FollowEvent(Long followerId, Long followedId, String action) {
+    public FollowEvent(String followerId, String followedId, String action) {
         this.followerId = followerId;
         this.followedId = followedId;
         this.action = action;
         this.timestamp = LocalDateTime.now();
     }
 
-    public Long getFollowerId() {
+    public String getFollowerId() {
         return followerId;
     }
 
-    public Long getFollowedId() {
+    public String getFollowedId() {
         return followedId;
     }
 

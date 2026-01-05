@@ -29,7 +29,7 @@ public class UserController {
 
     @GET
     @Path("{id}")
-    public Response get(@PathParam("id") Long id) {
+    public Response get(@PathParam("id") String id) {
         User u = repo.find(id);
         if (u == null) return Response.status(Response.Status.NOT_FOUND).build();
         return Response.ok(u).build();
@@ -43,7 +43,7 @@ public class UserController {
 
     @PUT
     @Path("{id}")
-    public Response update(@PathParam("id") Long id, User user) {
+    public Response update(@PathParam("id") String id, User user) {
         user.setId(id);
         User updated = repo.update(user);
         if (updated == null) return Response.status(Response.Status.NOT_FOUND).build();
@@ -53,7 +53,7 @@ public class UserController {
     @Path("{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response patchUser(@PathParam("id") Long id, User partial) {
+    public Response patchUser(@PathParam("id") String id, User partial) {
         try {
             User existing = repo.find(id);
             if (existing == null) return Response.status(Response.Status.NOT_FOUND).build();
@@ -75,7 +75,7 @@ public class UserController {
 
     @DELETE
     @Path("{id}")
-    public Response delete(@PathParam("id") Long id) {
+    public Response delete(@PathParam("id") String id) {
         boolean removed = repo.delete(id);
         if (!removed) return Response.status(Response.Status.NOT_FOUND).build();
         return Response.noContent().build();
@@ -83,7 +83,7 @@ public class UserController {
 
       @POST
     @Path("{id}/follow/{targetId}")
-    public Response followUser(@PathParam("id") Long followerId, @PathParam("targetId") Long followingId) {
+    public Response followUser(@PathParam("id") String followerId, @PathParam("targetId") String followingId) {
         User follower = repo.find(followerId);
         User following = repo.find(followingId);
         
@@ -102,7 +102,7 @@ public class UserController {
 
     @DELETE
     @Path("{id}/follow/{targetId}")
-    public Response unfollowUser(@PathParam("id") Long followerId, @PathParam("targetId") Long followingId) {
+    public Response unfollowUser(@PathParam("id") String followerId, @PathParam("targetId") String followingId) {
         boolean removed = repo.unfollow(followerId, followingId);
         if (!removed) return Response.status(Response.Status.NOT_FOUND).build();
 
@@ -113,7 +113,7 @@ public class UserController {
 
     @GET
     @Path("{id}/followers")
-    public Response getFollowers(@PathParam("id") Long userId) {
+    public Response getFollowers(@PathParam("id") String userId) {
         User u = repo.find(userId);
         if (u == null) return Response.status(Response.Status.NOT_FOUND).build();
         return Response.ok(repo.getFollowers(userId)).build();
@@ -121,7 +121,7 @@ public class UserController {
 
     @GET
     @Path("{id}/following")
-    public Response getFollowing(@PathParam("id") Long userId) {
+    public Response getFollowing(@PathParam("id") String userId) {
         User u = repo.find(userId);
         if (u == null) return Response.status(Response.Status.NOT_FOUND).build();
         return Response.ok(repo.getFollowing(userId)).build();
@@ -129,7 +129,7 @@ public class UserController {
 
     @GET
     @Path("{id}/follower-count")
-    public Response getFollowerCount(@PathParam("id") Long userId) {
+    public Response getFollowerCount(@PathParam("id") String userId) {
         User u = repo.find(userId);
         if (u == null) return Response.status(Response.Status.NOT_FOUND).build();
         return Response.ok("{\"followerCount\": " + repo.getFollowerCount(userId) + "}").build();
@@ -146,7 +146,7 @@ public class UserController {
 
     @GET
     @Path("{id}/following-count")
-    public Response getFollowingCount(@PathParam("id") Long userId) {
+    public Response getFollowingCount(@PathParam("id") String userId) {
         User u = repo.find(userId);
         if (u == null) return Response.status(Response.Status.NOT_FOUND).build();
         return Response.ok("{\"followingCount\": " + repo.getFollowingCount(userId) + "}").build();
@@ -154,7 +154,7 @@ public class UserController {
 
     @GET
     @Path("{id}/is-following/{targetId}")
-    public Response isFollowing(@PathParam("id") Long followerId, @PathParam("targetId") Long followingId) {
+    public Response isFollowing(@PathParam("id") String followerId, @PathParam("targetId") String followingId) {
         return Response.ok("{\"following\": " + repo.isFollowing(followerId, followingId) + "}").build();
     }
 }

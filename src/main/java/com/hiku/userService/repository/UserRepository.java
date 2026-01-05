@@ -30,7 +30,7 @@ public class UserRepository {
         return result;
     }
 
-    public User find(Long id) {
+    public User find(String id) {
         EntityManager em = getEntityManager();
         User user = em.find(User.class, id);
   
@@ -62,7 +62,7 @@ public class UserRepository {
         return merged;
     }
 
-    public boolean delete(Long id) {
+    public boolean delete(String id) {
         EntityManager em = getEntityManager();
         em.getTransaction().begin();
         User u = em.find(User.class, id);
@@ -92,7 +92,7 @@ public class UserRepository {
         return f;
     }
 
-    public boolean unfollow(Long followerId, Long followingId) {
+    public boolean unfollow(String followerId, String followingId) {
         EntityManager em = getEntityManager();
         em.getTransaction().begin();
         Follow f = em.createQuery(
@@ -113,7 +113,7 @@ public class UserRepository {
         return true;
     }
 
-    public List<User> getFollowers(Long userId) {
+    public List<User> getFollowers(String userId) {
         EntityManager em = getEntityManager();
         List<User> result = em.createQuery(
             "SELECT f.follower FROM Follow f WHERE f.following.id = :userId",
@@ -140,7 +140,7 @@ public List<User> searchByUsername(String query) {
 
 
 
-    public List<User> getFollowing(Long userId) {
+    public List<User> getFollowing(String userId) {
         EntityManager em = getEntityManager();
         List<User> result = em.createQuery(
             "SELECT f.following FROM Follow f WHERE f.follower.id = :userId",
@@ -151,7 +151,7 @@ public List<User> searchByUsername(String query) {
         return result;
     }
 
-    public long getFollowerCount(Long userId) {
+    public long getFollowerCount(String userId) {
         EntityManager em = getEntityManager();
         long count = em.createQuery(
             "SELECT COUNT(f) FROM Follow f WHERE f.following.id = :userId",
@@ -162,7 +162,7 @@ public List<User> searchByUsername(String query) {
         return count;
     }
 
-    public long getFollowingCount(Long userId) {
+    public long getFollowingCount(String userId) {
         EntityManager em = getEntityManager();
         long count = em.createQuery(
             "SELECT COUNT(f) FROM Follow f WHERE f.follower.id = :userId",
@@ -173,7 +173,7 @@ public List<User> searchByUsername(String query) {
         return count;
     }
 
-    public boolean isFollowing(Long followerId, Long followingId) {
+    public boolean isFollowing(String followerId, String followingId) {
         EntityManager em = getEntityManager();
         Long count = em.createQuery(
             "SELECT COUNT(f) FROM Follow f WHERE f.follower.id = :follower AND f.following.id = :following",

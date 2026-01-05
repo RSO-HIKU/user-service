@@ -7,14 +7,14 @@ import javax.persistence.criteria.CriteriaBuilder.In;
 import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.UUID;
 import com.hiku.userService.model.Follow;
 
 @Entity
 @Table(name = "users", schema = "user_service")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
 
     @Column(nullable=false, unique=true)
     private String username;
@@ -42,12 +42,13 @@ public class User {
 
     @PrePersist
     public void prePersist() {
+        if (id == null) id = UUID.randomUUID().toString();
         if (createdAt == null) createdAt = OffsetDateTime.now();
     }
 
     // getters / setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public String getId() { return id; }
+    public void setId(String id) { this.id = id; }
 
     public String getUsername() { return username; }
     public void setUsername(String username) { this.username = username; }
