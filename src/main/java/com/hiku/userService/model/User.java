@@ -42,7 +42,11 @@ public class User {
 
     @PrePersist
     public void prePersist() {
-        if (id == null) id = UUID.randomUUID().toString();
+        // Only generate ID if not provided (for backward compatibility)
+        // When creating from Keycloak, ID will be set from Keycloak's sub claim
+        if (id == null || id.trim().isEmpty()) {
+            id = UUID.randomUUID().toString();
+        }
         if (createdAt == null) createdAt = OffsetDateTime.now();
     }
 
