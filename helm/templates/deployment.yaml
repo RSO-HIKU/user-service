@@ -59,8 +59,8 @@ spec:
 
               export RABBITMQ_DEFAULT_USER=$(cat /mnt/secrets-store/rabbitmq-default-user)
               export RABBITMQ_DEFAULT_PASS=$(cat /mnt/secrets-store/rabbitmq-default-pass)
-              export RABBITMQ_HOST=${ .Values.rabbitmq.host }
-              export RABBITMQ_PORT={{ .Values.rabbitmq.port }}
+                export RABBITMQ_HOST="{{ .Values.rabbitmq.host }}"
+                export RABBITMQ_PORT="{{ .Values.rabbitmq.port }}"
 
               # Run the Java application
               exec java -jar /app/user-service.jar
