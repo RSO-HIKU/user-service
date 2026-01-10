@@ -43,6 +43,12 @@ flyway:
   baselineOnMigrate: true
   baselineVersion: 2
 
+rabbitmq:
+  host: rabbitmq.platform.svc.cluster.local
+  port: 5672
+  user: hikuuser
+  password: hikupassword
+
 jwtAuth:
   issuer: "http://localhost:8080/auth/realms/hiku-dev"
   jwksUri: "http://keycloak.keycloak.svc.cluster.local:8080/auth/realms/hiku-dev/protocol/openid-connect/certs"
