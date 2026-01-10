@@ -13,9 +13,9 @@ kumuluzee:
       username: ${KUMULUZEE_DATASOURCES_DEFAULT_USERNAME}
       password: ${KUMULUZEE_DATASOURCES_DEFAULT_PASSWORD:hikupassword}
       # HikariCP-specific pool settings
-      hikari:
-        minimum-idle: ${KUMULUZEE_DATASOURCES_DEFAULT_HIKARI_MINIMUM_IDLE:1}
-        maximum-pool-size: ${KUMULUZEE_DATASOURCES_DEFAULT_HIKARI_MAXIMUM_POOL_SIZE:3}
+      POOL:
+        max-size: 3
+        min-size:
   jwt-auth:
     issuer: ${KUMULUZEE_JWT_AUTH_ISSUER}
     jwks-uri: ${KUMULUZEE_JWT_AUTH_JWKS_URI}
