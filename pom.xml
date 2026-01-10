@@ -29,6 +29,24 @@
             <groupId>com.kumuluz.ee</groupId>
             <artifactId>kumuluzee-core</artifactId>
             <version>${kumuluzee.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>io.agroal</groupId>
+                    <artifactId>agroal-api</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>io.agroal</groupId>
+                    <artifactId>agroal-hikari</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>io.agroal</groupId>
+                    <artifactId>agroal-pool</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.zaxxer</groupId>
+                    <artifactId>HikariCP</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>com.kumuluz.ee</groupId>
