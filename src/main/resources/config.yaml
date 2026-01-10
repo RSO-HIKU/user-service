@@ -12,9 +12,10 @@ kumuluzee:
       connection-url: ${KUMULUZEE_DATASOURCES_DEFAULT_CONNECTIONURL:jdbc:postgresql://localhost:5432/hikudb}
       username: ${KUMULUZEE_DATASOURCES_DEFAULT_USERNAME}
       password: ${KUMULUZEE_DATASOURCES_DEFAULT_PASSWORD:hikupassword}
-      pool:
-        min-size: ${KUMULUZEE_DATASOURCES_DEFAULT_POOL_MIN_SIZE:1}
-        max-size: ${KUMULUZEE_DATASOURCES_DEFAULT_POOL_MAX_SIZE:3}
+      # HikariCP-specific pool settings
+      hikari:
+        minimum-idle: ${KUMULUZEE_DATASOURCES_DEFAULT_HIKARI_MINIMUM_IDLE:1}
+        maximum-pool-size: ${KUMULUZEE_DATASOURCES_DEFAULT_HIKARI_MAXIMUM_POOL_SIZE:3}
   jwt-auth:
     issuer: ${KUMULUZEE_JWT_AUTH_ISSUER}
     jwks-uri: ${KUMULUZEE_JWT_AUTH_JWKS_URI}
