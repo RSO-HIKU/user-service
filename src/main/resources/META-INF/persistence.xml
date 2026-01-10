@@ -16,6 +16,8 @@
             <!-- Comment below out and run mvn clean compile to generate locally .sql -->
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
             <!-- Comment above out and run mvn clean compile to generate locally .sql -->
+            
+            
             <!-- Hibernate dialect -->
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL10Dialect"/>
 

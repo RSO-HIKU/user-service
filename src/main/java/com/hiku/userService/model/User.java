@@ -27,8 +27,6 @@ public class User {
     private String fullName;
     private String bio;
     private String profileImageUrl;
-
-    private Integer age;
     
     @JsonbTransient
     @OneToMany(mappedBy = "follower", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -77,8 +75,5 @@ public class User {
 
     public String getProfileImageUrl() { return profileImageUrl; }
     public void setProfileImageUrl(String profileImageUrl) { this.profileImageUrl = profileImageUrl; }
-
-    public Integer getAge() { return age; }
-    public void setAge(Integer age) { this.age = age; }
 
 }

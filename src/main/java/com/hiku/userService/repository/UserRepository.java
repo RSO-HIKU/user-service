@@ -39,6 +39,7 @@ public class UserRepository {
     }
 
     public User create(User user) {
+        System.out.println("Persisting user: " + user);
         EntityManager em = getEntityManager();
         em.getTransaction().begin();
         em.persist(user);

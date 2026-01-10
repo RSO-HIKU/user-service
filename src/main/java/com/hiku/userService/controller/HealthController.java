@@ -132,6 +132,7 @@ public class HealthController {
      * Check database connectivity by executing a simple query.
      */
     private HealthCheckResult checkDatabase() {
+   
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -145,6 +146,7 @@ public class HealthController {
                 em.close();
             }
         }
+        
     }
 
     /**

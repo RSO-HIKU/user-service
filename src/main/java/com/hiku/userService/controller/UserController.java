@@ -37,6 +37,7 @@ public class UserController {
 
     @POST
     public Response create(User user) {
+        System.out.println("Creating user: " + user);
         User created = repo.create(user);
         return Response.status(Response.Status.CREATED).entity(created).build();
     }
@@ -61,7 +62,6 @@ public class UserController {
             // Only update fields that are not null
             if (partial.getUsername() != null) existing.setUsername(partial.getUsername());
             if (partial.getEmail() != null) existing.setEmail(partial.getEmail());
-            if (partial.getAge() != null) existing.setAge(partial.getAge());
             if (partial.getBio() != null) existing.setBio(partial.getBio());
 
             User updated = repo.update(existing);
