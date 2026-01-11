@@ -8,6 +8,7 @@ import com.hiku.userService.repository.UserRepository;
 import com.hiku.userService.messaging.FollowEvent;
 import com.hiku.userService.messaging.FollowEventPublisher;
 
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -15,6 +16,7 @@ import javax.ws.rs.core.Response;
 import java.util.List;
 import java.util.Map;
 @Path("/user")
+@RolesAllowed("user")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class UserController {
