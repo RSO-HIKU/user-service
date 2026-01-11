@@ -1,0 +1,1926 @@
+{
+	"info": {
+		"_postman_id": "e93c05f3-b83e-432c-ae44-9f7fc4758e34",
+		"name": "User Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "50625471",
+		"_collection_link": "https://hiku99.postman.co/workspace/HIKU~a6a05134-9dee-4d54-81a0-4bc7685fcc34/collection/50625471-e93c05f3-b83e-432c-ae44-9f7fc4758e34?action=share&source=collection_link&creator=50625471"
+	},
+	"item": [
+		{
+			"name": "Create new user profile (called after Keycloak registration)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"keycloak-uuid3\",\r\n  \"username\": \"johndoe3\",\r\n  \"email\": \"john3@example.com\",\r\n  \"fullName\": \"John3 Doe\",\r\n  \"bio\": \"Hiking enthusiast\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/user/user/",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"user",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create new user profile (called after Keycloak registration)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bio\": \"test\",\r\n    \"createdAt\": \"2025-10-08T22:42:39.924286Z\",\r\n    \"email\": \"john@exatmple.com\",\r\n    \"fullName\": \"John\",\r\n    \"profileImageUrl\": \"https://pics.com/jj.jpg\",\r\n    \"username\": \"test\",\r\n    \"id\":\"testid\",\r\n    \"age\":33\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/user/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"user",
+								""
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "origin, content-type, accept, authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PATCH, PUT, DELETE, OPTIONS, HEAD"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:8081"
+						},
+						{
+							"key": "Content-Length",
+							"value": "178"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 Jan 2026 12:17:52 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(10.0.9)"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "KumuluzEE/4.1.0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"bio\": \"test\",\n    \"createdAt\": \"2025-10-08T22:42:39.924286Z\",\n    \"email\": \"john@exatmple.com\",\n    \"fullName\": \"John\",\n    \"id\": \"testid\",\n    \"profileImageUrl\": \"https://pics.com/jj.jpg\",\n    \"username\": \"test\"\n}"
+				},
+				{
+					"name": "Create new user profile (called after Keycloak registration)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"keycloak-uuid\",\r\n  \"username\": \"johndoe\",\r\n  \"email\": \"john@example.com\",\r\n  \"fullName\": \"John Doe\",\r\n  \"bio\": \"Hiking enthusiast\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/user/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"user",
+								""
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "origin, content-type, accept, authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PATCH, PUT, DELETE, OPTIONS, HEAD"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:8081"
+						},
+						{
+							"key": "Content-Length",
+							"value": "163"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 Jan 2026 12:19:01 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(10.0.9)"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "KumuluzEE/4.1.0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"bio\": \"Hiking enthusiast\",\n    \"createdAt\": \"2026-01-11T12:19:01.676566218Z\",\n    \"email\": \"john@example.com\",\n    \"fullName\": \"John Doe\",\n    \"id\": \"keycloak-uuid\",\n    \"username\": \"johndoe\"\n}"
+				},
+				{
+					"name": "Create new user profile (called after Keycloak registration)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"keycloak-uuid3\",\r\n  \"username\": \"johndoe3\",\r\n  \"email\": \"john3@example.com\",\r\n  \"fullName\": \"John3 Doe\",\r\n  \"bio\": \"Hiking enthusiast\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/user/user/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"user",
+								""
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "origin, content-type, accept, authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PATCH, PUT, DELETE, OPTIONS, HEAD"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:8081"
+						},
+						{
+							"key": "Content-Length",
+							"value": "167"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 Jan 2026 12:33:00 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(10.0.9)"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "KumuluzEE/4.1.0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"bio\": \"Hiking enthusiast\",\n    \"createdAt\": \"2026-01-11T12:33:00.773252019Z\",\n    \"email\": \"john3@example.com\",\n    \"fullName\": \"John3 Doe\",\n    \"id\": \"keycloak-uuid3\",\n    \"username\": \"johndoe3\"\n}"
+				}
+			]
+		},
+		{
+			"name": "user by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/api/user/user/{{userId}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"user",
+						"{{userId}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "user by id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/user/{{userId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"user",
+								"{{userId}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "origin, content-type, accept, authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PATCH, PUT, DELETE, OPTIONS, HEAD"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:8081"
+						},
+						{
+							"key": "Content-Length",
+							"value": "185"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 Jan 2026 12:13:59 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(10.0.9)"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "KumuluzEE/4.1.0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"bio\": \"I like hiking\",\n    \"createdAt\": \"2026-01-08T20:23:07.048331Z\",\n    \"email\": \"mancavavpotic@gmail.com\",\n    \"fullName\": \"nina novak\",\n    \"id\": \"bd927d2a-4af6-4602-ab74-cca8e106f1f7\",\n    \"username\": \"nina\"\n}"
+				},
+				{
+					"name": "user by id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/user/user/{{userId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"user",
+								"{{userId}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "origin, content-type, accept, authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PATCH, PUT, DELETE, OPTIONS, HEAD"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:8081"
+						},
+						{
+							"key": "Content-Length",
+							"value": "185"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 Jan 2026 12:32:36 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(10.0.9)"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "KumuluzEE/4.1.0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"bio\": \"I like hiking\",\n    \"createdAt\": \"2026-01-08T20:23:07.048331Z\",\n    \"email\": \"mancavavpotic@gmail.com\",\n    \"fullName\": \"nina novak\",\n    \"id\": \"bd927d2a-4af6-4602-ab74-cca8e106f1f7\",\n    \"username\": \"nina\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete user account",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/api/user/user/testid",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"user",
+						"testid"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete user account",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/user/user/testid",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"user",
+								"testid"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "origin, content-type, accept, authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PATCH, PUT, DELETE, OPTIONS, HEAD"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:8081"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 Jan 2026 12:41:26 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(10.0.9)"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "KumuluzEE/4.1.0"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Partially update user profile (only provided fields are updated)",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"bio\": \"Hiking enthusiast update\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/user/user/{{userId}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"user",
+						"{{userId}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Partially update user profile (only provided fields are updated)",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"bio\": \"Hiking enthusiast update\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/user/user/{{userId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"user",
+								"{{userId}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "origin, content-type, accept, authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PATCH, PUT, DELETE, OPTIONS, HEAD"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:8081"
+						},
+						{
+							"key": "Content-Length",
+							"value": "196"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 Jan 2026 12:38:13 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(10.0.9)"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "KumuluzEE/4.1.0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"bio\": \"Hiking enthusiast update\",\n    \"createdAt\": \"2026-01-08T20:23:07.048331Z\",\n    \"email\": \"mancavavpotic@gmail.com\",\n    \"fullName\": \"nina novak\",\n    \"id\": \"bd927d2a-4af6-4602-ab74-cca8e106f1f7\",\n    \"username\": \"nina\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Follow another user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/api/user/user/{{userId}}/follow/{{followUserId}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"user",
+						"{{userId}}",
+						"follow",
+						"{{followUserId}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Follow another user",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/user/user/{{userId}}/follow/{{followUserId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"user",
+								"{{userId}}",
+								"follow",
+								"{{followUserId}}"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "origin, content-type, accept, authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PATCH, PUT, DELETE, OPTIONS, HEAD"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:8081"
+						},
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 Jan 2026 12:44:59 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(10.0.9)"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "KumuluzEE/4.1.0"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "List all users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/api/user/user",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"user"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "List all users",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseURL}}/user",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "origin, content-type, accept, authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PATCH, PUT, DELETE, OPTIONS, HEAD"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:8081"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1065"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 Jan 2026 12:07:50 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(10.0.9)"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "KumuluzEE/4.1.0"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"bio\": \"I like hiking\",\n        \"createdAt\": \"2026-01-08T20:23:07.048331Z\",\n        \"email\": \"mancavavpotic@gmail.com\",\n        \"fullName\": \"nina novak\",\n        \"id\": \"bd927d2a-4af6-4602-ab74-cca8e106f1f7\",\n        \"username\": \"nina\"\n    },\n    {\n        \"bio\": \"filip\",\n        \"createdAt\": \"2026-01-08T22:16:32.143401Z\",\n        \"email\": \"filip@gmail.com\",\n        \"fullName\": \"Filip Filip\",\n        \"id\": \"8d760cee-240f-4592-a12f-ea511179af21\",\n        \"username\": \"filip\"\n    },\n    {\n        \"bio\": \"Test\",\n        \"createdAt\": \"2026-01-08T22:19:29.750296Z\",\n        \"email\": \"ana.novak@example.com\",\n        \"fullName\": \"ana novak\",\n        \"id\": \"22db5d4b-621b-45a5-95a9-033063d0658a\",\n        \"username\": \"ana\"\n    },\n    {\n        \"bio\": \"I love ice cream and hiking.\",\n        \"createdAt\": \"2026-01-10T14:41:34.617492Z\",\n        \"email\": \"nika.kovac@gmail.com\",\n        \"fullName\": \"nika kovac\",\n        \"id\": \"842a4091-bf27-486b-a255-87b4211d4e5e\",\n        \"username\": \"nika\"\n    },\n    {\n        \"bio\": \"test2\",\n        \"createdAt\": \"2026-01-08T20:20:43.291333Z\",\n        \"email\": \"ak@test.com\",\n        \"fullName\": \"ak test\",\n        \"id\": \"8e93bfd1-3a0b-479a-a041-071b92be00ec\",\n        \"username\": \"ak47\"\n    },\n    {\n        \"bio\": \"Triglav\",\n        \"createdAt\": \"2026-01-10T21:42:09.1576Z\",\n        \"email\": \"stane@mail.om\",\n        \"fullName\": \"stane stanič\",\n        \"id\": \"5be32422-b299-42b8-9b35-01bc563e95e2\",\n        \"username\": \"stani\"\n    }\n]"
+				},
+				{
+					"name": "List all users",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/user/user",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"user"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "origin, content-type, accept, authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PATCH, PUT, DELETE, OPTIONS, HEAD"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:8081"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1405"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 Jan 2026 12:32:18 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(10.0.9)"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "KumuluzEE/4.1.0"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"bio\": \"I like hiking\",\n        \"createdAt\": \"2026-01-08T20:23:07.048331Z\",\n        \"email\": \"mancavavpotic@gmail.com\",\n        \"fullName\": \"nina novak\",\n        \"id\": \"bd927d2a-4af6-4602-ab74-cca8e106f1f7\",\n        \"username\": \"nina\"\n    },\n    {\n        \"bio\": \"filip\",\n        \"createdAt\": \"2026-01-08T22:16:32.143401Z\",\n        \"email\": \"filip@gmail.com\",\n        \"fullName\": \"Filip Filip\",\n        \"id\": \"8d760cee-240f-4592-a12f-ea511179af21\",\n        \"username\": \"filip\"\n    },\n    {\n        \"bio\": \"Test\",\n        \"createdAt\": \"2026-01-08T22:19:29.750296Z\",\n        \"email\": \"ana.novak@example.com\",\n        \"fullName\": \"ana novak\",\n        \"id\": \"22db5d4b-621b-45a5-95a9-033063d0658a\",\n        \"username\": \"ana\"\n    },\n    {\n        \"bio\": \"I love ice cream and hiking.\",\n        \"createdAt\": \"2026-01-10T14:41:34.617492Z\",\n        \"email\": \"nika.kovac@gmail.com\",\n        \"fullName\": \"nika kovac\",\n        \"id\": \"842a4091-bf27-486b-a255-87b4211d4e5e\",\n        \"username\": \"nika\"\n    },\n    {\n        \"bio\": \"test2\",\n        \"createdAt\": \"2026-01-08T20:20:43.291333Z\",\n        \"email\": \"ak@test.com\",\n        \"fullName\": \"ak test\",\n        \"id\": \"8e93bfd1-3a0b-479a-a041-071b92be00ec\",\n        \"username\": \"ak47\"\n    },\n    {\n        \"bio\": \"Triglav\",\n        \"createdAt\": \"2026-01-10T21:42:09.1576Z\",\n        \"email\": \"stane@mail.om\",\n        \"fullName\": \"stane stanič\",\n        \"id\": \"5be32422-b299-42b8-9b35-01bc563e95e2\",\n        \"username\": \"stani\"\n    },\n    {\n        \"bio\": \"test\",\n        \"createdAt\": \"2025-10-08T22:42:39.924286Z\",\n        \"email\": \"john@exatmple.com\",\n        \"fullName\": \"John\",\n        \"id\": \"testid\",\n        \"profileImageUrl\": \"https://pics.com/jj.jpg\",\n        \"username\": \"test\"\n    },\n    {\n        \"bio\": \"Hiking enthusiast\",\n        \"createdAt\": \"2026-01-11T12:19:01.676566Z\",\n        \"email\": \"john@example.com\",\n        \"fullName\": \"John Doe\",\n        \"id\": \"keycloak-uuid\",\n        \"username\": \"johndoe\"\n    }\n]"
+				},
+				{
+					"name": "List all users",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/user/user",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"user"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "origin, content-type, accept, authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PATCH, PUT, DELETE, OPTIONS, HEAD"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:8081"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1558"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 Jan 2026 14:24:06 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(10.0.9)"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "KumuluzEE/4.1.0"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"bio\": \"filip\",\n        \"createdAt\": \"2026-01-08T22:16:32.143401Z\",\n        \"email\": \"filip@gmail.com\",\n        \"fullName\": \"Filip Filip\",\n        \"id\": \"8d760cee-240f-4592-a12f-ea511179af21\",\n        \"username\": \"filip\"\n    },\n    {\n        \"bio\": \"Test\",\n        \"createdAt\": \"2026-01-08T22:19:29.750296Z\",\n        \"email\": \"ana.novak@example.com\",\n        \"fullName\": \"ana novak\",\n        \"id\": \"22db5d4b-621b-45a5-95a9-033063d0658a\",\n        \"username\": \"ana\"\n    },\n    {\n        \"bio\": \"I love ice cream and hiking.\",\n        \"createdAt\": \"2026-01-10T14:41:34.617492Z\",\n        \"email\": \"nika.kovac@gmail.com\",\n        \"fullName\": \"nika kovac\",\n        \"id\": \"842a4091-bf27-486b-a255-87b4211d4e5e\",\n        \"username\": \"nika\"\n    },\n    {\n        \"bio\": \"test2\",\n        \"createdAt\": \"2026-01-08T20:20:43.291333Z\",\n        \"email\": \"ak@test.com\",\n        \"fullName\": \"ak test\",\n        \"id\": \"8e93bfd1-3a0b-479a-a041-071b92be00ec\",\n        \"username\": \"ak47\"\n    },\n    {\n        \"bio\": \"Triglav\",\n        \"createdAt\": \"2026-01-10T21:42:09.1576Z\",\n        \"email\": \"stane@mail.om\",\n        \"fullName\": \"stane stanič\",\n        \"id\": \"5be32422-b299-42b8-9b35-01bc563e95e2\",\n        \"username\": \"stani\"\n    },\n    {\n        \"bio\": \"Hiking enthusiast\",\n        \"createdAt\": \"2026-01-11T12:19:01.676566Z\",\n        \"email\": \"john@example.com\",\n        \"fullName\": \"John Doe\",\n        \"id\": \"keycloak-uuid\",\n        \"username\": \"johndoe\"\n    },\n    {\n        \"bio\": \"Hiking enthusiast\",\n        \"createdAt\": \"2026-01-11T12:33:00.773252Z\",\n        \"email\": \"john3@example.com\",\n        \"fullName\": \"John3 Doe\",\n        \"id\": \"keycloak-uuid3\",\n        \"username\": \"johndoe3\"\n    },\n    {\n        \"bio\": \"Hiking enthusiast update\",\n        \"createdAt\": \"2026-01-08T20:23:07.048331Z\",\n        \"email\": \"mancavavpotic@gmail.com\",\n        \"fullName\": \"nina novak\",\n        \"id\": \"bd927d2a-4af6-4602-ab74-cca8e106f1f7\",\n        \"username\": \"nina\"\n    },\n    {\n        \"createdAt\": \"2026-01-11T13:37:39.196428Z\",\n        \"email\": \"rso@gmail.com\",\n        \"fullName\": \"RSO User\",\n        \"id\": \"6670357b-dae4-44c6-9497-10b4da1559cb\",\n        \"username\": \"rso_user\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Unfollow a user",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/api/user/user/{{userId}}/follow/{{followUserId}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"user",
+						"{{userId}}",
+						"follow",
+						"{{followUserId}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Unfollow a user",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/user/user/{{userId}}/follow/{{followUserId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"user",
+								"{{userId}}",
+								"follow",
+								"{{followUserId}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "origin, content-type, accept, authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PATCH, PUT, DELETE, OPTIONS, HEAD"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:8081"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 Jan 2026 12:47:54 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(10.0.9)"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "KumuluzEE/4.1.0"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Get list of users who follow this user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}//api/user/user/{{userId}}/followers",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"",
+						"api",
+						"user",
+						"user",
+						"{{userId}}",
+						"followers"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get list of users who follow this user",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}//api/user/user/{{userId}}/followers",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"",
+								"api",
+								"user",
+								"user",
+								"{{userId}}",
+								"followers"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "origin, content-type, accept, authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PATCH, PUT, DELETE, OPTIONS, HEAD"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:8081"
+						},
+						{
+							"key": "Content-Length",
+							"value": "372"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 Jan 2026 13:06:58 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(10.0.9)"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "KumuluzEE/4.1.0"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"bio\": \"Test\",\n        \"createdAt\": \"2026-01-08T22:19:29.750296Z\",\n        \"email\": \"ana.novak@example.com\",\n        \"fullName\": \"ana novak\",\n        \"id\": \"22db5d4b-621b-45a5-95a9-033063d0658a\",\n        \"username\": \"ana\"\n    },\n    {\n        \"bio\": \"I love ice cream and hiking.\",\n        \"createdAt\": \"2026-01-10T14:41:34.617492Z\",\n        \"email\": \"nika.kovac@gmail.com\",\n        \"fullName\": \"nika kovac\",\n        \"id\": \"842a4091-bf27-486b-a255-87b4211d4e5e\",\n        \"username\": \"nika\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get list of users this user is following",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/api/user/user/{{userId}}/following",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"user",
+						"{{userId}}",
+						"following"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get list of users this user is following",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/user/user/{{userId}}/following",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"user",
+								"{{userId}}",
+								"following"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "origin, content-type, accept, authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PATCH, PUT, DELETE, OPTIONS, HEAD"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:8081"
+						},
+						{
+							"key": "Content-Length",
+							"value": "362"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 Jan 2026 13:08:41 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(10.0.9)"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "KumuluzEE/4.1.0"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"bio\": \"I love ice cream and hiking.\",\n        \"createdAt\": \"2026-01-10T14:41:34.617492Z\",\n        \"email\": \"nika.kovac@gmail.com\",\n        \"fullName\": \"nika kovac\",\n        \"id\": \"842a4091-bf27-486b-a255-87b4211d4e5e\",\n        \"username\": \"nika\"\n    },\n    {\n        \"bio\": \"test2\",\n        \"createdAt\": \"2026-01-08T20:20:43.291333Z\",\n        \"email\": \"ak@test.com\",\n        \"fullName\": \"ak test\",\n        \"id\": \"8e93bfd1-3a0b-479a-a041-071b92be00ec\",\n        \"username\": \"ak47\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get follower count for a user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}//api/user/user/{{userId}}/follower-count",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"",
+						"api",
+						"user",
+						"user",
+						"{{userId}}",
+						"follower-count"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get follower count for a user",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}//api/user/user/{{userId}}/follower-count",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"",
+								"api",
+								"user",
+								"user",
+								"{{userId}}",
+								"follower-count"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "origin, content-type, accept, authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PATCH, PUT, DELETE, OPTIONS, HEAD"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:8081"
+						},
+						{
+							"key": "Content-Length",
+							"value": "20"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 Jan 2026 13:10:17 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(10.0.9)"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "KumuluzEE/4.1.0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"followerCount\": 2\n}"
+				}
+			]
+		},
+		{
+			"name": "Get following count for a user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}//api/user/user/{{userId}}/following-count",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"",
+						"api",
+						"user",
+						"user",
+						"{{userId}}",
+						"following-count"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get following count for a user",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}//api/user/user/{{userId}}/following-count",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"",
+								"api",
+								"user",
+								"user",
+								"{{userId}}",
+								"following-count"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "origin, content-type, accept, authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PATCH, PUT, DELETE, OPTIONS, HEAD"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:8081"
+						},
+						{
+							"key": "Content-Length",
+							"value": "21"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 Jan 2026 13:11:25 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(10.0.9)"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "KumuluzEE/4.1.0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"followingCount\": 2\n}"
+				}
+			]
+		},
+		{
+			"name": "Check if user is following another user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/api/user/user/{{userId}}/is-following/{{followUserId}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"user",
+						"{{userId}}",
+						"is-following",
+						"{{followUserId}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Check if user is following another user",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/user/user/{{userId}}/is-following/{{followUserId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"user",
+								"{{userId}}",
+								"is-following",
+								"{{followUserId}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "origin, content-type, accept, authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PATCH, PUT, DELETE, OPTIONS, HEAD"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:8081"
+						},
+						{
+							"key": "Content-Length",
+							"value": "19"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 Jan 2026 13:13:06 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(10.0.9)"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "KumuluzEE/4.1.0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"following\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "Search users by username",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/api/user/user/search?search=nina",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"user",
+						"search"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "nina",
+							"description": "String name, mac length 255 char"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Search users by username",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/user/user/search?search=nika",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"user",
+								"search"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "nika"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "origin, content-type, accept, authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PATCH, PUT, DELETE, OPTIONS, HEAD"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:8081"
+						},
+						{
+							"key": "Content-Length",
+							"value": "199"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 Jan 2026 13:15:39 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(10.0.9)"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "KumuluzEE/4.1.0"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"bio\": \"I love ice cream and hiking.\",\n        \"createdAt\": \"2026-01-10T14:41:34.617492Z\",\n        \"email\": \"nika.kovac@gmail.com\",\n        \"fullName\": \"nika kovac\",\n        \"id\": \"842a4091-bf27-486b-a255-87b4211d4e5e\",\n        \"username\": \"nika\"\n    }\n]"
+				},
+				{
+					"name": "Search users by username",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/user/user/search?search=nina",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"user",
+								"search"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "nina"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "origin, content-type, accept, authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PATCH, PUT, DELETE, OPTIONS, HEAD"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:8081"
+						},
+						{
+							"key": "Content-Length",
+							"value": "198"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 Jan 2026 13:15:56 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(10.0.9)"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "KumuluzEE/4.1.0"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"bio\": \"Hiking enthusiast update\",\n        \"createdAt\": \"2026-01-08T20:23:07.048331Z\",\n        \"email\": \"mancavavpotic@gmail.com\",\n        \"fullName\": \"nina novak\",\n        \"id\": \"bd927d2a-4af6-4602-ab74-cca8e106f1f7\",\n        \"username\": \"nina\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "health check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/api/user/health",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"health"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "health check",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/user/health",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"health"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "origin, content-type, accept, authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PATCH, PUT, DELETE, OPTIONS, HEAD"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:8081"
+						},
+						{
+							"key": "Content-Length",
+							"value": "246"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 Jan 2026 13:18:44 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(10.0.9)"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "KumuluzEE/4.1.0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"UP\",\n    \"service\": \"user-service\",\n    \"timestamp\": \"2026-01-11T13:18:44.799735463Z\",\n    \"checks\": [\n        {\n            \"name\": \"database\",\n            \"status\": \"UP\",\n            \"message\": \"Database connection OK\"\n        },\n        {\n            \"name\": \"memory\",\n            \"status\": \"UP\",\n            \"message\": \"Heap usage: 13.5% (268 MB / 1986 MB)\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "health Liveness probe",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/api/user/health/live",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"health",
+						"live"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "health Liveness probe",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/user/health/live",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"health",
+								"live"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "origin, content-type, accept, authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PATCH, PUT, DELETE, OPTIONS, HEAD"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:8081"
+						},
+						{
+							"key": "Content-Length",
+							"value": "105"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 Jan 2026 13:20:48 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(10.0.9)"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "KumuluzEE/4.1.0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"UP\",\n    \"service\": \"user-service\",\n    \"timestamp\": \"2026-01-11T13:20:48.445469220Z\",\n    \"uptime_ms\": 3184568\n}"
+				}
+			]
+		},
+		{
+			"name": "health Readiness probe",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/api/user/health/ready",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"health",
+						"ready"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "health Readiness probe",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/user/health/ready",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"health",
+								"ready"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "origin, content-type, accept, authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PATCH, PUT, DELETE, OPTIONS, HEAD"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:8081"
+						},
+						{
+							"key": "Content-Length",
+							"value": "147"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 Jan 2026 13:21:57 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(10.0.9)"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "KumuluzEE/4.1.0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"UP\",\n    \"service\": \"user-service\",\n    \"timestamp\": \"2026-01-11T13:21:57.392840158Z\",\n    \"database\": {\n        \"status\": \"UP\",\n        \"message\": \"Database connection OK\"\n    }\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					"// Pre-request Script\r",
+					"const keycloakUrl = \"http://your-keycloak:8080/auth/realms/hiku-dev/protocol/openid-connect/token\";\r",
+					"const clientId = \"476169b9-b186-432f-a1af-bef2f9d3168f\";\r",
+					"const username = \"niki\";\r",
+					"const password = \"password\";\r",
+					"\r",
+					"pm.sendRequest({\r",
+					"    url: keycloakUrl,\r",
+					"    method: \"POST\",\r",
+					"    body: {\r",
+					"        mode: \"urlencoded\",\r",
+					"        urlencoded: [\r",
+					"            {key: \"client_id\", value: clientId},\r",
+					"            {key: \"username\", value: username},\r",
+					"            {key: \"password\", value: password},\r",
+					"            {key: \"grant_type\", value: \"password\"}\r",
+					"        ]\r",
+					"    }\r",
+					"}, (err, response) => {\r",
+					"    if (err) console.log(err);\r",
+					"    else {\r",
+					"        const token = response.json().access_token;\r",
+					"        pm.environment.set(\"token\", token);\r",
+					"    }\r",
+					"});"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": ""
+		}
+	]
+}

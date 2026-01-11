@@ -44,14 +44,8 @@ public class UserController {
         return Response.status(Response.Status.CREATED).entity(created).build();
     }
 
-    @PUT
-    @Path("{id}")
-    public Response update(@PathParam("id") String id, User user) {
-        user.setId(id);
-        User updated = repo.update(user);
-        if (updated == null) return Response.status(Response.Status.NOT_FOUND).build();
-        return Response.ok(updated).build();
-    }
+
+    
     @PATCH
     @Path("{id}")
     @Consumes(MediaType.APPLICATION_JSON)
