@@ -139,7 +139,7 @@ Migrations run automatically via Kubernetes Job (see `helm/templates/migrate-job
 
 ## API Endpoints
 
-Api endpoints are described in /doc/api.json.
+Api endpoints are described in /doc/User Service.postman_collection.json.
 ## Authentication & Authorization
 
 ### JWT-Based Authentication
